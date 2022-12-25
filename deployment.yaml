@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: oo
+
+
+spec:
+  selector:
+    matchLabels:
+      app: m
+  replicas: 3
+  template: 
+    metadata:
+      name: dep1
+      labels:
+        app: m
+    spec:
+      containers:
+        - image: saniaelareef/nginx-test
+          name: nginx-test
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1"
